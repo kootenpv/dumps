@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-import dumps
 from datetime import datetime
+
+import dumps
 
 # Example data structures
 data = {
@@ -9,17 +9,15 @@ data = {
     "active": True,
     "balance": 1234.56,
     "tags": ["python", "rust", "json"],
-    "metadata": {
-        "created": "2024-01-01",
-        "modified": "2024-01-10"
-    },
+    "metadata": {"created": "2024-01-01", "modified": "2024-01-10"},
     "tuple_data": (1, 2, 3),
-    "set_data": {1, 2, 3, 2, 1},  # Will be [1, 2, 3] in JSON
+    "set_data": {1, 2, 3},  # Will be [1, 2, 3] in JSON
     "none_value": None,
     "bytes_data": b"Hello, bytes!",
-    "utf8_bytes": "Hello, 世界".encode('utf-8'),
-    "timestamp": datetime(2025, 7, 10, 11, 51, 57, 960798)
+    "utf8_bytes": "Hello, 世界".encode(),
+    "timestamp": datetime(2025, 7, 10, 11, 51, 57, 960798),
 }
+
 
 # Serialize to JSON with base64 encoding for bytes
 json_str = dumps.json(data, bytes="base64")
@@ -56,7 +54,7 @@ except Exception as e:
     print(f"Error: {e}")
 
 print("\n2. UTF-8 encoding:")
-result = dumps.json({"data": "Hello, 世界".encode('utf-8')}, bytes="utf-8", indent=2)
+result = dumps.json({"data": "Hello, 世界".encode()}, bytes="utf-8", indent=2)
 print(result)
 
 print("\n3. Base64 encoding:")

@@ -2,7 +2,7 @@
 import dumps
 
 # Test data with different byte strings
-utf8_bytes = "Hello, 世界".encode('utf-8')
+utf8_bytes = "Hello, 世界".encode()
 ascii_bytes = b"Hello, ASCII"
 binary_bytes = b"\x00\x01\x02\x03\xff"
 
@@ -74,11 +74,7 @@ print()
 # Test with nested data
 print("8. Nested data with bytes:")
 try:
-    data = {
-        "text": "hello",
-        "items": [ascii_bytes, utf8_bytes],
-        "meta": {"binary": binary_bytes}
-    }
+    data = {"text": "hello", "items": [ascii_bytes, utf8_bytes], "meta": {"binary": binary_bytes}}
     result = dumps.json(data, bytes="base64", indent=2)
     print(f"Result: {result}")
 except Exception as e:

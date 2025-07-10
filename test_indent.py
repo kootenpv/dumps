@@ -1,16 +1,9 @@
 #!/usr/bin/env python3
-import dumps
 from datetime import datetime
 
-data = {
-    "name": "John",
-    "age": 30,
-    "items": [1, 2, 3],
-    "meta": {
-        "created": datetime.now(),
-        "active": True
-    }
-}
+import dumps
+
+data = {"name": "John", "age": 30, "items": [1, 2, 3], "meta": {"created": datetime.now(), "active": True}}
 
 print("Compact (indent=0, default):")
 result = dumps.json(data)
